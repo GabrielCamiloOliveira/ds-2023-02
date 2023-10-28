@@ -1,4 +1,5 @@
 package com.example.anotacao;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,9 +21,7 @@ public class Observable {
     }
 
     public void notificarObservers(String message) {
-        for (CustomObserver observer : observers) {
-            observer.update(message);
-        }
+        observers.forEach(observer -> observer.update(message));
     }
 
     public String getIdentificador() {

@@ -7,11 +7,8 @@ public class AnotacaoApplication {
         Observable carroObservable = new Observable("carro");
         Observable aviaoObservable = new Observable("aviao");
 
-        CarroObserver observer1 = new CarroObserver();
-        AviaoObserver observer2 = new AviaoObserver(); 
-
-        carroObservable.addObserver(observer1);
-        aviaoObservable.addObserver(observer2);
+        carroObservable.addObserver(message -> System.out.println("Mensagem recebida (Carro): " + message));
+        aviaoObservable.addObserver(message -> System.out.println("Mensagem Recebida (Avião): " + message));
 
         carroObservable.notificarObservers("carro em movimento.");
         aviaoObservable.notificarObservers("avião em movimento.");
